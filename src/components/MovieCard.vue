@@ -4,8 +4,12 @@ import RatingComponent from './RatingComponent.vue'
 </script>
 
 <template>
-  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 justify-center m-3">
-    <div v-for="movie in movies" :key="movie.id" class="bg-white text-black rounded-xl m-2">
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5 justify-center m-3">
+    <div
+      v-for="movie in movies"
+      :key="movie.id"
+      class="relative bg-white text-black rounded-xl m-2"
+    >
       <img :src="movie.poster" :alt="movie.name" class="w-full h-100 rounded-t-xl" />
       <section class="details py-3 px-5">
         <h3 class="font-semibold text-2xl mt-3">{{ movie.name }}</h3>
