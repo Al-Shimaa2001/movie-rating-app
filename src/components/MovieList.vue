@@ -11,6 +11,7 @@ import MovieCard from './MovieCard.vue'
         <MovieCard></MovieCard>
       </section>
     </div>
+
   </main>
 </template>
 
