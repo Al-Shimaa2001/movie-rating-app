@@ -1,18 +1,16 @@
 <script setup>
-import EditMovie from './EditMovie.vue';
-
-
+import MovieHeader from './MovieHeader.vue'
+import MovieCard from './MovieCard.vue'
 </script>
 
 <template>
-  <div>
-hello in move list
+  <main class="bg-cyan-950 h-[100vh] text-white grid grid-cols-1 justify-center items-center text-center">
+    <MovieHeader />
+    <section class="container">
+      <MovieCard></MovieCard>
 
-<EditMovie />
-
-  </div>
+    </section>
+  </main>
 </template>
 
-<style lang="css" scoped>
-
-</style>
+<style lang="css" scoped></style>
