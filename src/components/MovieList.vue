@@ -5,10 +5,12 @@ import MovieCard from './MovieCard.vue'
 
 <template>
   <main class="bg-cyan-950 h-full text-white flex flex-col justify-center items-center">
-    <MovieHeader />
-    <section class="container">
-      <MovieCard></MovieCard>
-    </section>
+    <div class="container">
+      <MovieHeader />
+      <section class="container">
+        <MovieCard></MovieCard>
+      </section>
+    </div>
   </main>
 </template>
 
