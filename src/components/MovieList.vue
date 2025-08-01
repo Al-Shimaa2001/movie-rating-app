@@ -4,11 +4,10 @@ import MovieCard from './MovieCard.vue'
 </script>
 
 <template>
-  <main class="bg-cyan-950 h-[100vh] text-white grid grid-cols-1 justify-center items-center text-center">
+  <main class="bg-cyan-950 h-full text-white flex flex-col justify-center items-center">
     <MovieHeader />
     <section class="container">
       <MovieCard></MovieCard>
-
     </section>
   </main>
 </template>
