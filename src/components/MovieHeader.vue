@@ -1,12 +1,11 @@
 <script setup>
-import { ref } from 'vue'
-import movies from '../API/MOCK_DATA.json'
+import { defineProps } from 'vue'
 
-function addMovie(newMovie) {
-  movies.value.push(newMovie)
-}
-const totalMovies = ref(3) // This should be dynamically calculated based on your data
-const averageRating = ref(3) // This should also be dynamically calculated based on your data
+defineProps(
+  {
+    totalMovies: { type: Number, required: true },averageRating: { type: Number, required: true }
+  }
+)
 </script>
 
 <template>
@@ -19,9 +18,7 @@ const averageRating = ref(3) // This should also be dynamically calculated based
       </div>
       <div class="flex gap-2">
         <button class="capitalize bg-cyan-500 p-1 rounded">remove rating</button>
-        <button class="capitalize bg-cyan-500 p-1 rounded" @add-movie="addMovie"
-          >add movies</button>
-        
+        <button class="capitalize bg-cyan-500 p-1 rounded">add movies</button>
       </div>
     </nav>
   </header>

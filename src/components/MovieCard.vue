@@ -4,10 +4,12 @@ import moviesData from '../API/MOCK_DATA.json'
 import RatingComponent from './RatingComponent.vue'
 import { Icon } from '@iconify/vue'
 import EditMovie from './EditMovie.vue'
+import MovieHeader from './MovieHeader.vue'
 const movies = ref([...moviesData])
 
 function deleteMovie(index) {
   movies.value.splice(index, 1)
+  movieTotal -= 1
 }
 function updateMovie(updatedMovie) {
   const index = movies.value.findIndex((movie) => movie.id === updatedMovie.id)
@@ -15,9 +17,12 @@ function updateMovie(updatedMovie) {
     movies.value[index] = updatedMovie
   }
 }
+let movieTotal = moviesData.length
+const averageMovieRate = (movieTotal / 5).toFixed(2)
 </script>
 
 <template>
+  <MovieHeader :totalMovies="movieTotal" :averageRating="averageMovieRate" />
   <main
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5 justify-center m-3"
   >
@@ -26,7 +31,7 @@ function updateMovie(updatedMovie) {
       :key="movie.id"
       class="relative bg-white text-black rounded-xl m-2"
     >
-      <img :src="movie.poster" :alt="movie.name" class="w-full h-100 rounded-t-xl" />
+      <img :src="movie.url || movie.poster" :alt="movie.name" class="w-full h-100 rounded-t-xl" />
       <section class="details py-3 px-5">
         <h3 class="font-semibold text-2xl mt-3">{{ movie.name }}</h3>
         <span

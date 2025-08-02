@@ -2,7 +2,7 @@
 import { Icon } from '@iconify/vue'
 import { Button } from './ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import FormAddMovies from './FormAddMovies.vue'
+import FormAddMovies from './FormMovies.vue'
 defineProps({
   movie: {
     type: Object,
