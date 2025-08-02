@@ -5,6 +5,8 @@ import RatingComponent from './RatingComponent.vue'
 import { Icon } from '@iconify/vue'
 import EditMovie from './EditMovie.vue'
 import MovieHeader from './MovieHeader.vue'
+import AddMovies from './AddMovies.vue'
+
 const movies = ref([...moviesData])
 
 function deleteMovie(index) {
@@ -18,11 +20,18 @@ function updateMovie(updatedMovie) {
   }
 }
 let movieTotal = moviesData.length
-const averageMovieRate = (movieTotal / 5).toFixed(2)
+let averageMovieRate = ref((movieTotal / 5).toFixed(2))
+
+function addMovie(newMovie) {
+  newMovie.id = Date.now().toString()
+  movies.value.push(newMovie)
+}
 </script>
 
 <template>
-  <MovieHeader :totalMovies="movieTotal" :averageRating="averageMovieRate" />
+  <MovieHeader :totalMovies="movieTotal" :averageRating="averageMovieRate">
+    <AddMovies @add-movie="addMovie" />
+  </MovieHeader>
   <main
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5 justify-center m-3"
   >
